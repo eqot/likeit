@@ -10,12 +10,18 @@ window.likeitWidget = {
             var viewer = document.getElementById('viewer-count');
             if (!like) {
                 head.innerHTML += '<style>#likeit {' + style + '}</style>' + head.innerHTML;
-                body.innerHTML += '<div id="likeit"><span id="like-count">0</span> Like / <span id="viewer-count">0</span> Viewer</div>';
+                body.innerHTML += '<div id="likeit"><span id="like-count">0</span> Likes / <span id="viewer-count">0</span> Viewers</div>';
                 like = document.getElementById('like-count');
                 viewer = document.getElementById('viewer-count');
             }
+
+            var likeit = document.getElementById('likeit');
+            likeit.addEventListener('click', function () {
+                socket.emit('like');
+            });
+
             socket.on('like', function (count) {
-                likeit.innerHTML = count;
+                like.innerHTML = count;
             });
             socket.on('viewer', function (count) {
                 viewer.innerHTML = count;
