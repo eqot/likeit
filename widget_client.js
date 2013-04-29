@@ -20,6 +20,14 @@ window.likeitWidget = {
                 socket.emit('like');
             });
 
+            document.onkeydown = function (event) {
+                if (event.keyCode === 32) {
+                    event.preventDefault();
+
+                    socket.emit('like');
+                }
+            };
+
             socket.on('like', function (count) {
                 like.innerHTML = count;
             });
