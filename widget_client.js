@@ -21,7 +21,8 @@ window.likeitWidget = {
             });
 
             document.onkeydown = function (event) {
-                if (event.keyCode === 32) {
+                // if (event.keyCode === 32) { // Space key
+                if (event.keyCode === 13) { // Return key
                     event.preventDefault();
 
                     socket.emit('like');
