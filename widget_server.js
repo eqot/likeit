@@ -1,3 +1,5 @@
+'use strict';
+
 var io = require('socket.io').listen(8081);
 var sioclient = require('socket.io-client');
 var widgetScript = require('fs').readFileSync('widget_client.js');
@@ -20,8 +22,8 @@ sioclient.builder(io.transports(), function (err, siojs) {
 });
 
 io.sockets.on('connection', function (socket) {
-    var origin = (socket.handshake.xdomain)
-        ? url.parse(socket.handshake.headers.origin).hostname : 'local';
+    var origin = (socket.handshake.xdomain) ?
+        url.parse(socket.handshake.headers.origin).hostname : 'local';
 
     viewer[origin] = viewer[origin] || 0;
     viewer[origin]++;

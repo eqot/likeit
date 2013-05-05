@@ -1,3 +1,5 @@
+'use strict';
+
 var http = require('http');
 var clientHtml = require('fs').readFileSync('index.html');
 

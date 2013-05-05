@@ -1,3 +1,7 @@
+/*global io */
+
+'use strict';
+
 window.likeitWidget = {
     style: 'position:absolute;top:0px;right:0px;font-size:3em',
     init: function () {
@@ -37,4 +41,4 @@ window.likeitWidget = {
             });
         });
     }
-}
+};
